@@ -1,0 +1,30 @@
+DOCTYPE html
+html
+	head
+		title Stundenplan
+		link href="style.min.css" rel="stylesheet"
+	body ng-app="schedule" ng-controller="ScheduleController"
+		header.clearfix
+			h1 H3o
+			.weeks.clearfix 		
+				a.week ng-repeat="week in weeks" href="#?week={{week}}" ng-class="{current: current_week == week}"
+					| {{week}}		
+		.days 
+			.day ng-repeat="day in days" ng-if="day.week == current_week" 
+				.name ng-id="{current: is_today(day.id)}"
+					| {{day.name}}
+				.lessons ng-repeat="lesson in day.lessons"
+					.lesson.clearfix ng-repeat="(key, value) in lesson" ng-class="{current: is_lesson(times[key], day.id)}"
+						.num 
+							| {{key}}
+							.start_time
+								| {{times[key]}}
+			    		.description
+				    		.name 
+				    			| {{units[value].display_name}}   	
+				    		.room 
+				    			| {{units[value].room}}
+    	script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular.min.js"
+    	//script src="https://raw.githubusercontent.com/angular/angular.js/master/src/ngLocale/angular-locale_de-de.js"
+    	script src="scripts.min.js"
+ 

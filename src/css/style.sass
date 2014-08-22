@@ -1,0 +1,80 @@
+$inactive: #34495E
+$active: #22313F
+
+*
+	padding: 0
+	margin: 0
+	list-style: none
+	color: #fff
+	text-decoration: none
+	font-family: sans-serif
+	box-sizing: border-box
+
+.clearfix
+	&:after
+		clear: both
+		content: ''
+		display: table
+
+
+html, body
+	height: 100%
+
+header
+	border-bottom: 5px solid $active
+	h1
+		width: 60px
+		float: left
+		font-size: 20px
+		background: darken($active,5%)
+		padding: 10px
+		text-align: center
+
+.weeks
+	width: calc(100% - 60px)
+	float: left
+	.week
+		padding: 10px		
+		background: $inactive
+		display: block
+		float: left	
+		width: 50%
+		text-align: center
+		font-size: 20px
+		&.current
+			background: $active
+.days
+	#height: calc(100% - 50px)
+	#overflow: auto
+	.day	
+		> .name
+			background: $active
+			padding: 10px
+			text-align: center
+			font-weight: bold
+
+	.lessons
+		.lesson
+			background: $inactive
+			border-left: 10px solid transparent
+			&.current
+				background: $active
+			.num
+				float: left
+				font-size: 25px
+				padding: 10px
+				text-align: center
+				line-height: 25px
+				.start_time
+					font-size: 15px
+					line-height: 15px
+			.description
+				float: left
+				font-size: 20px
+				line-height: 20px
+				padding: 10px
+				.room
+					font-size: 15px
+					line-height: 15px
+					padding-top: 5px
+				
